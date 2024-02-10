@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+<style>
+header{
+
+color:white;
+background:green;
+padding:30px;
+font-size:30px;
+text-align:center;
+font-weight:bold;
+}
+
+footer{
+
+color:white;
+background:black;
+padding:1px;
+font-size:15px;
+text-align:center;
+
+}
+
+marquee{
+
+background:blue;
+color:white;
+
+}
+
+input[type="button"]{
+background-color:green;
+color:white;
+border-radius:12px;
+}
+input[type="reset"]{
+background-color:red;
+color:white;
+border-radius:12px;
+}
+</style>
+<script type="text/javascript">
+
+function simpleInterest(){
+var p= parseFloat(document.getElementById("pamount").value);
+var rate= parseFloat(document.getElementById("rof").value);
+var startDate= new Date(document.getElementById("start-date").value);
+var endDate = new Date(document.getElementById("end-date").value);
+
+var diffMilliSeconds= endDate-startDate;
+var diffDays=(diffMilliSeconds/(1000*60*60*24));
+
+var t = diffDays /30; 
+var interest=(p*t*rate)/100;
+document.getElementById("resulty").value= interest.toFixed(2);
+var finalAmount =interest + p;
+document.getElementById("result").value= finalAmount.toFixed(2);
+
+document.getElementById("totaldays").value= diffDays;
+}
+</script>
+</head>
+<body>
+<header>Interest Calculator</header>
+<marquee>Please enter "Rate of Interest" directly as 1.5 or 2,..</marquee>
+<br>
+<form name="form1" align="center">
+<font size="5"><label for="start-date">Enter Principle Amount:</label>
+<input type="text" id="pamount"><br><br>
+<font size="5"><label for="start-date">Enter Rate of Interest:</label>
+<input type="text" id="rof"><br><br>
+<font size="5"><label for="start-date">Start date:</label>
+<input type="date" id="start-date">
+<br><br>
+<font size="5"><label for="end-date">End date:</label>
+<input type="date" id="end-date"><br><br>
+<input type= "button" value="Calculate" onclick="simpleInterest()" style="width:100px; height:40px">
+<br><br>
+<font size="5"><label for="totaldays">Total days:</label>
+<input type="text" id="totaldays"><br><br>
+<font size="5"><label for="resulty">Interest:</label>
+<input type="text" id="resulty"><br><br>
+<font size="5"><label for="result">Total Amount:</label>
+<input type="text" id="result"><br><br>
+<input type="reset" value="Clear all" style="width:100px; height:40px"><br>
+<footer>
+    <p>Note: It will take every day from start to end date..even if the month has 31 days..then it take 31 days for count.</p>
+    
+</footer>
+</form>
+</body>
+</html>
